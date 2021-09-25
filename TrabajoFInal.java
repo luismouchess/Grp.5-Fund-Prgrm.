@@ -15,6 +15,7 @@ public class TrabajoFInal {
     String[] codigoEnvio = {"PA","SO"};
     String[] tipoUnidad = {"GRAMOS","KILOGRAMOS"};
     String[] tipoRecojo = {"CON RECOJO","SIN RECOJO"};
+
     String[] Codigodistrito = {"LI","CA","JE","MO","VE","VI","BR","MI","LO","CO"};
     String[] distrito = {"LIMA","CALLAO","JESUS MARIA","LA MOLINA","VENTANILLA","LA VICTORIA","BREÑA","MIRAFLORES","LOS OLIVOS","COMAS"};
     String[] Codigoprovincia = {"LI","CA","IC","CU","IQ","TU","AR","TA","PU","MO"};
@@ -43,6 +44,7 @@ public class TrabajoFInal {
         System.out.println("2. NACIONAL");
         System.out.println("Selecciona el número de item correspondiente: ");
         itemCarga = teclado.nextInt();
+
         if (itemCarga==1 && itemServicio ==1){
             System.out.println("Digita el Distrito de recojo/envio");
             System.out.println("[1]. LIMA");
@@ -74,10 +76,6 @@ public class TrabajoFInal {
             System.out.println("[9]. LOS OLIVOS");
             System.out.println("[10]. COMAS");
             itemDistritoEnvio = teclado.nextInt();
-
-
-
-
         }
 
         System.out.println("\nTipo de Envio:  ");
@@ -89,8 +87,6 @@ public class TrabajoFInal {
             System.out.println("Digita peso del Paquete :");
             itemPeso = teclado.nextInt();
             System.out.println("Digita la medida :");
-
-
         }
        if (itemEnvio==2 ){
             System.out.println("Digita el peso del sobre en :");
@@ -104,7 +100,7 @@ public class TrabajoFInal {
         }
        // String tipo = generarCodigoProforma(operacion);
        // System.out.println("la operacion es  : " + operacion  + " cantidad de operaciones : " + operacion.substring(14,17) + "-" + "Tipo de Operacion : "+  tipo);
-        String codigo = generaCodigo(itemServicio,itemDistritoEnvio,itemDistritoEnvio,Codigodistrito,itemEnvio,itemPeso);
+        String codigo = generaCodigo(itemServicio,itemDistritoRecojo,Codigodistrito,itemDistritoEnvio,itemEnvio,itemPeso,tipoEnvio,tipoServicio);
         System.out.println("AQUI :" + codigo);
     }
     // leyenda:
@@ -115,20 +111,18 @@ public class TrabajoFInal {
     // PA=PAQUETE / SO=SOBRE
     //
     //RENALI
-
-    private static String generaCodigo(int itemServicio, int itemDistritoRecojo, int itemDistritoEnvio  , String[] Codigodistrito ,int itemEnvio,int itemPeso) {
+//***********************
+    private static String generaCodigo(int itemServicio, int itemDistritoRecojo,String[] Codigodistrito int itemDistritoEnvio ,
+                                       int itemEnvio,int itemPeso,String[] tipoEnvio, String[] tipoServicio) {
         //objetivo : generar el codigo de la proforma
         // RELI
-        String servicio,xcodigo = null;
-       if (itemServicio==1){
-           servicio="RE";
-       }else servicio="EN";
-        for (int i = 0; i < (Codigodistrito.length); i++) {
-            if (Codigodistrito[i].equals(Codigodistrito[itemDistritoRecojo-1]))
-                xcodigo= Codigodistrito[i];
-        }
+      String servicio,distritoRecojo,xcodigo = null;
 
-        for (int i = 0; i < (Codigodistrito.length); i++) {
+      servicio = generaServicio(itemServicio,tipoServicio);
+      distritoRecojo = obtieneDistritoR(itemDistritoRecojo,Codigodistrito);
+      distritoRecojo = obtieneDistritoR(itemDistritoEnvio,Codigodistrito);
+
+      for (int i = 0; i < (tipoEnvio.length); i++) {
             if (Codigodistrito[i].equals(Codigodistrito[itemDistritoRecojo-1]))
                 xcodigo= Codigodistrito[i];
         }
@@ -136,6 +130,30 @@ public class TrabajoFInal {
       String codigo = servicio+ xcodigo;
       return codigo;
    }
+//**********************
+    private static String generaServicio(int itemServicio , String[] tipoServicio) {
+    String codigoSer = null;
+
+        for (int i = 0; i < (tipoServicio.length); i++) {
+        if (tipoServicio[i].equals(tipoServicio[itemServicio-1]))
+            codigoSer= tipoServicio[i];
+         }
+    return codigoSer;
+    }
+//**********************
+
+    private static String obtieneDistritoR(int itemDistritoRecojo,String[] Codigodistrito) {
+        String codigoDis = null;
+
+        for (int i = 0; i < (Codigodistrito.length); i++) {
+            if (Codigodistrito[i].equals(Codigodistrito[itemDistritoRecojo-1]))
+                codigoDis= Codigodistrito[i];
+        }
+        return codigoDis;
+    }
+
+
+
 }
 /*ICA 12
         CHINCHA 12
