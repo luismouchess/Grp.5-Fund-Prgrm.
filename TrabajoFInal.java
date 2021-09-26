@@ -17,7 +17,7 @@ public class TrabajoFInal {
     String[] tipoRecojo = {"CON RECOJO","SIN RECOJO"};
 
     String[] Codigodistrito = {"LI","CA","JE","MO","VE","VI","BR","MI","LO","CO"};
-    String[] distrito = {"LIMA","CALLAO","JESUS MARIA","LA MOLINA","VENTANILLA","LA VICTORIA","BREÑA","MIRAFLORES","LOS OLIVOS","COMAS"};
+    String[] distrito = {"LIMA","CALLAO","JESUS MARIA","LA MOLINA","VENTANILLA","LA VICTORIA","BREÑA","MIRAFLORES","LOS OLIVOS","COMAS","MAGDALENA"};
     String[] Codigoprovincia = {"LI","CA","IC","CU","IQ","TU","AR","TA","PU","MO"};
     String[] provincia = {"LIMA","CALLAO","ICA","CUZCO","IQUITOS","TUMBES","AREQUIPA","TACNA","PUNO","MOQUEGUA"};
     String[] tipoEmbalaje = {"PALETA DE MADERA","CARTON CORRUGADO","SACOS DE YUTE","PLASTIFICADO"};
@@ -76,6 +76,7 @@ public class TrabajoFInal {
             System.out.println("[8]. MIRAFLORES");
             System.out.println("[9]. LOS OLIVOS");
             System.out.println("[10]. COMAS");
+            System.out.println(¨[11]. MAGDALENA");
             itemDistritoEnvio = teclado.nextInt();
         }
 
