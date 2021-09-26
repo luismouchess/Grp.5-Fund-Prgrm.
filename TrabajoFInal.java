@@ -57,6 +57,7 @@ public class TrabajoFInal {
             System.out.println("[8]. MIRAFLORES");
             System.out.println("[9]. LOS OLIVOS");
             System.out.println("[10]. COMAS");
+            System.out.println("¨[11]. MAGDALENA");
             itemDistritoRecojo = teclado.nextInt();
             itemDistritoEnvio = teclado.nextInt();
 
