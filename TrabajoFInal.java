@@ -128,7 +128,7 @@ public class TrabajoFInal {
 
 
         double montoP = ObtieneMontoPqte(itemPeso,itemEnvio,itemCarga ,itemDistritoRecojo ,distrito ,ZONA1,ZONA2 );
-        String distritoP = obtieneDistritoR(itemDistritoRecojo,Codigodistrito);
+        String distritoP = obtieneDistritoR(itemDistritoRecojo,distrito);
         int montoEm = obtieneCostoEmbalaje(tipoEmbalajes,costoTipoEmbalajes,itemEmbala);
         String carga = tipoCarga[itemCarga-1];
 
@@ -207,12 +207,12 @@ private static double ObtieneMontoPqte(int itemPeso, int itemEnvio, int itemCarg
     }
 
 //*********************
-    private static String obtieneDistritoR(int itemDistritoRecojo,String[] Codigodistrito) {
+    private static String obtieneDistritoR(int itemDistritoRecojo,String[] distrito) {
         String codigoDis = null;
 
-        for (int i = 0; i < (Codigodistrito.length); i++) {
-            if (Codigodistrito[i].equals(Codigodistrito[itemDistritoRecojo-1]))
-                codigoDis= Codigodistrito[i];
+        for (int i = 0; i < (distrito.length); i++) {
+            if (distrito[i].equals(distrito[itemDistritoRecojo-1]))
+                codigoDis= distrito[i];
         }
         return codigoDis;
     }
