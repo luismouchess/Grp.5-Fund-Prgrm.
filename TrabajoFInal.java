@@ -207,7 +207,7 @@ private static double ObtieneMontoPqte(int itemPeso, int itemEnvio, int itemCarg
     }
 
 //*********************
-    private static String obtieneDistritoR(int itemDistritoRecojo,String[] distrito) {
+    private static int obtieneDistritoR(int itemDistritoRecojo,String[] distrito) {
         String codigoDis = null;
 
         for (int i = 0; i < (distrito.length); i++) {
@@ -217,7 +217,7 @@ private static double ObtieneMontoPqte(int itemPeso, int itemEnvio, int itemCarg
         return codigoDis;
     }
  //**********************
-    private static String obtieneProvincia(int itemProvincia,String[] provincia) {
+    private static int obtieneProvincia(int itemProvincia,String[] provincia) {
         String codigoDis = null;
 
         for (int i = 0; i < (provincia.length); i++) {
